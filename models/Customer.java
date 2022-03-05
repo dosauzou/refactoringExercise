@@ -1,3 +1,5 @@
+package models;
+
 import redmondn.CustomerAccount;
 
 import java.util.ArrayList;
@@ -118,7 +120,7 @@ public class Customer {
 				+ "Surname = " + this.surname + "\n"
 				+ "First Name = " + this.firstName + "\n"
 				+ "Date of Birth = " + this.DOB + "\n"
-				+ "Customer ID = " + this.customerID;
+				+ "models.Customer ID = " + this.customerID;
 			
 	}
 	

@@ -1,3 +1,6 @@
+package models;
+
+import models.ATMCard;
 import redmondn.AccountTransaction;
 import redmondn.CustomerAccount;
 

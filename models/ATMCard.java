@@ -1,3 +1,5 @@
+package models;
+
 public class ATMCard {
  
 	int pin;
@@ -35,7 +37,7 @@ public class ATMCard {
 	
 	public String toString()
 	{
-		return "Pin = " + this.pin;
+		return "Pin = " + getPin();
 			
 	}
 }

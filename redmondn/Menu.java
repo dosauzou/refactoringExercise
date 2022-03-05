@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import models.*;
 import java.util.Date;
 public class Menu extends JFrame{
 	
@@ -58,16 +59,16 @@ public class Menu extends JFrame{
 			JPanel userTypePanel = new JPanel();
 			final ButtonGroup userType = new ButtonGroup();
 			JRadioButton radioButton;
-			userTypePanel.add(radioButton = new JRadioButton("Existing Customer"));
-			radioButton.setActionCommand("Customer");
+			userTypePanel.add(radioButton = new JRadioButton("Existing models.Customer"));
+			radioButton.setActionCommand("models.Customer");
 			userType.add(radioButton);
 			
 			userTypePanel.add(radioButton = new JRadioButton("Administrator"));
 			radioButton.setActionCommand("Administrator");
 			userType.add(radioButton);
 			
-			userTypePanel.add(radioButton = new JRadioButton("New Customer"));
-			radioButton.setActionCommand("New Customer");
+			userTypePanel.add(radioButton = new JRadioButton("New models.Customer"));
+			radioButton.setActionCommand("New models.Customer");
 			userType.add(radioButton);
 
 			JPanel continuePanel = new JPanel();
@@ -86,10 +87,10 @@ public class Menu extends JFrame{
 					String user = userType.getSelection().getActionCommand(  );
 					
 					//if user selects NEW CUSTOMER--------------------------------------------------------------------------------------
-					if(user.equals("New Customer"))
+					if(user.equals("New models.Customer"))
 					{
 						f.dispose();		
-						f1 = new JFrame("Create New Customer");
+						f1 = new JFrame("Create New models.Customer");
 						f1.setSize(400, 300);
 						f1.setLocation(200, 200);
 						f1.addWindowListener(new WindowAdapter() {
@@ -162,7 +163,7 @@ public class Menu extends JFrame{
 											
 										customerList.add(customer);
 									
-										JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID +"\n Password = " + password  ,"Customer created.",  JOptionPane.INFORMATION_MESSAGE);
+										JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID +"\n Password = " + password  ,"models.Customer created.",  JOptionPane.INFORMATION_MESSAGE);
 										menuStart();
 									f.dispose();
 							}
@@ -254,7 +255,7 @@ public class Menu extends JFrame{
 					
 					
 					//if user selects CUSTOMER ---------------------------------------------------------------------------------------- 
-					if(user.equals("Customer")	)
+					if(user.equals("models.Customer")	)
 					{
 						boolean loop = true, loop2 = true;
 						boolean cont = false;
@@ -262,7 +263,7 @@ public class Menu extends JFrame{
 						Customer customer = null;
 					    while(loop)
 					    {
-					    Object customerID = JOptionPane.showInputDialog(f, "Enter Customer ID:");
+					    Object customerID = JOptionPane.showInputDialog(f, "Enter models.Customer ID:");
 					    
 					    for (Customer aCustomer: customerList){
 					    	
@@ -296,7 +297,7 @@ public class Menu extends JFrame{
 					    
 					    while(loop2)
 					    {
-					    	Object customerPassword = JOptionPane.showInputDialog(f, "Enter Customer Password;");
+					    	Object customerPassword = JOptionPane.showInputDialog(f, "Enter models.Customer Password;");
 					    	
 					    	   if(!customer.getPassword().equals(customerPassword))//check if custoemr password is correct
 							    {
@@ -344,7 +345,7 @@ public class Menu extends JFrame{
 		f.setVisible(true);
 		
 		JPanel deleteCustomerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JButton deleteCustomer = new JButton("Delete Customer");	
+		JButton deleteCustomer = new JButton("Delete models.Customer");
 		deleteCustomer.setPreferredSize(new Dimension(250, 20));
 		deleteCustomerPanel.add(deleteCustomer);
 		
@@ -364,12 +365,12 @@ public class Menu extends JFrame{
 		interestButton.setPreferredSize(new Dimension(250, 20));
 		
 		JPanel editCustomerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JButton editCustomerButton = new JButton("Edit existing Customer");
+		JButton editCustomerButton = new JButton("Edit existing models.Customer");
 		editCustomerPanel.add(editCustomerButton);
 		editCustomerButton.setPreferredSize(new Dimension(250, 20));
 		
 		JPanel navigatePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JButton navigateButton = new JButton("Navigate Customer Collection");
+		JButton navigateButton = new JButton("Navigate models.Customer Collection");
 		navigatePanel.add(navigateButton);
 		navigateButton.setPreferredSize(new Dimension(250, 20));
 		
@@ -379,7 +380,7 @@ public class Menu extends JFrame{
 		summaryButton.setPreferredSize(new Dimension(250, 20));
 		
 		JPanel accountPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JButton accountButton = new JButton("Add an Account to a Customer");
+		JButton accountButton = new JButton("Add an Account to a models.Customer");
 		accountPanel.add(accountButton);
 		accountButton.setPreferredSize(new Dimension(250, 20));
 		
@@ -421,7 +422,7 @@ public class Menu extends JFrame{
 				{
 			    while(loop)
 			    {
-			    Object customerID = JOptionPane.showInputDialog(f, "Customer ID of Customer You Wish to Apply Charges to:");
+			    Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer You Wish to Apply Charges to:");
 			    
 			    for (Customer aCustomer: customerList){
 			    	
@@ -566,7 +567,7 @@ public class Menu extends JFrame{
 				{
 			    while(loop)
 			    {
-			    Object customerID = JOptionPane.showInputDialog(f, "Customer ID of Customer You Wish to Apply Interest to:");
+			    Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer You Wish to Apply Interest to:");
 			    
 			    for (Customer aCustomer: customerList){
 			    	
@@ -717,7 +718,7 @@ public class Menu extends JFrame{
 				
 			    while(loop)
 			    {
-			    Object customerID = JOptionPane.showInputDialog(f, "Enter Customer ID:");
+			    Object customerID = JOptionPane.showInputDialog(f, "Enter models.Customer ID:");
 			    
 			    for (Customer aCustomer: customerList){
 			    	
@@ -1089,7 +1090,7 @@ public class Menu extends JFrame{
 			
 			    while(loop)
 			    {
-			    Object customerID = JOptionPane.showInputDialog(f, "Customer ID of Customer You Wish to Add an Account to:");
+			    Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer You Wish to Add an Account to:");
 			    
 			    for (Customer aCustomer: customerList){
 			    	
@@ -1179,7 +1180,7 @@ public class Menu extends JFrame{
 				else
 				{
 					 {
-						    Object customerID = JOptionPane.showInputDialog(f, "Customer ID of Customer You Wish to Delete:");
+						    Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer You Wish to Delete:");
 						    
 						    for (Customer aCustomer: customerList){
 						    	
@@ -1214,7 +1215,7 @@ public class Menu extends JFrame{
 						    	else
 						    	{
 						    		customerList.remove(customer);
-						    		JOptionPane.showMessageDialog(f, "Customer Deleted " ,"Success.",  JOptionPane.INFORMATION_MESSAGE);
+						    		JOptionPane.showMessageDialog(f, "models.Customer Deleted " ,"Success.",  JOptionPane.INFORMATION_MESSAGE);
 						    	}
 						    }
 						    
@@ -1231,7 +1232,7 @@ public class Menu extends JFrame{
 				
 				
 					 {
-						    Object customerID = JOptionPane.showInputDialog(f, "Customer ID of Customer from which you wish to delete an account");
+						    Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer from which you wish to delete an account");
 						    
 						    for (Customer aCustomer: customerList){
 						    	
@@ -1276,7 +1277,7 @@ public class Menu extends JFrame{
 	
 	public void customer(Customer e1)
 	{	
-		f = new JFrame("Customer Menu");
+		f = new JFrame("models.Customer Menu");
 		e1 = e;
 		f.setSize(400, 300);
 		f.setLocation(200, 200);
@@ -1344,7 +1345,7 @@ public class Menu extends JFrame{
 				
 		f.dispose();
 		
-		f = new JFrame("Customer Menu");
+		f = new JFrame("models.Customer Menu");
 		f.setSize(400, 300);
 		f.setLocation(200, 200);
 		f.addWindowListener(new WindowAdapter() {
@@ -1369,7 +1370,7 @@ public class Menu extends JFrame{
 		withdrawButton.setPreferredSize(new Dimension(250, 20));
 		
 		JPanel returnPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		JButton returnButton = new JButton("Exit Customer Menu");
+		JButton returnButton = new JButton("Exit models.Customer Menu");
 		returnPanel.add(returnButton);
 
 		JLabel label1 = new JLabel("Please select an option");
@@ -1385,7 +1386,7 @@ public class Menu extends JFrame{
 		statementButton.addActionListener(new ActionListener(  ) {
 			public void actionPerformed(ActionEvent ae) {
 				f.dispose();
-				f = new JFrame("Customer Menu");
+				f = new JFrame("models.Customer Menu");
 				f.setSize(400, 600);
 				f.setLocation(200, 200);
 				f.addWindowListener(new WindowAdapter() {
