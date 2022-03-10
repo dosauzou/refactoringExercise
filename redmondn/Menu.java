@@ -1116,7 +1116,7 @@ public class Menu extends JFrame{
 				    	//create current account
 				    	boolean valid = true;
 				    	double balance = 0;
-				    	String number = String.valueOf("C" + (customerList.indexOf(customer)+1) * 10 + (customer.getAccounts().size()+1));//this simple algorithm generates the account number
+				    	String number = "C" + (customerList.indexOf(customer) + 1) * 10 + (customer.getAccounts().size() + 1);//this simple algorithm generates the account number
 				    	ArrayList<AccountTransaction> transactionList = new ArrayList<AccountTransaction>();
 				    	int randomPIN = (int)(Math.random()*9000)+1000;
 				           String pin = String.valueOf(randomPIN);
@@ -1137,7 +1137,7 @@ public class Menu extends JFrame{
 				    	//create deposit account
 				    	
 				    	double balance = 0, interest = 0;
-				    	String number = String.valueOf("D" + (customerList.indexOf(customer)+1) * 10 + (customer.getAccounts().size()+1));//this simple algorithm generates the account number
+				    	String number = "D" + (customerList.indexOf(customer) + 1) * 10 + (customer.getAccounts().size() + 1);//this simple algorithm generates the account number
 				    	ArrayList<AccountTransaction> transactionList = new ArrayList<AccountTransaction>();
 				        	
 				    	CustomerDepositAccount deposit = new CustomerDepositAccount(interest, number, balance, transactionList);
@@ -1157,8 +1157,8 @@ public class Menu extends JFrame{
 
 		deleteCustomer.addActionListener(new ActionListener(  ) {
 			public void actionPerformed(ActionEvent ae) {
-				boolean found = true, loop = true;
-				
+				boolean found = true;
+
 				if(customerList.isEmpty())
 				{
 					JOptionPane.showMessageDialog(null, "There are currently no customers to display. ");
@@ -1175,23 +1175,20 @@ public class Menu extends JFrame{
 						    	if(aCustomer.getCustomerID().equals(customerID))
 						    	{
 						    		found = true;
-						    		customer = aCustomer; 
-						    		loop = false;
-						    	}					    	
+						    		customer = aCustomer;
+								}
 						    }
 						    
 						    if(found == false)
 						    {
 						    	int reply  = JOptionPane.showConfirmDialog(null, null, "User not found. Try again?", JOptionPane.YES_NO_OPTION);
 						    	if (reply == JOptionPane.YES_OPTION) {
-						    		loop = true;
-						    	}
+								}
 						    	else if(reply == JOptionPane.NO_OPTION)
 						    	{
 						    		f.dispose();
-						    		loop = false;
-						    		
-						    		admin();
+
+									admin();
 						    	}
 						    }  
 						    else
@@ -1214,12 +1211,10 @@ public class Menu extends JFrame{
 		
 		deleteAccount.addActionListener(new ActionListener(  ) {
 			public void actionPerformed(ActionEvent ae) {
-	boolean found = true, loop = true;
-				
-				
-				
-				
-					 {
+	boolean found = true;
+
+
+				{
 						    Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer from which you wish to delete an account");
 						    
 						    for (Customer aCustomer: customerList){
@@ -1227,23 +1222,20 @@ public class Menu extends JFrame{
 						    	if(aCustomer.getCustomerID().equals(customerID))
 						    	{
 						    		found = true;
-						    		customer = aCustomer; 
-						    		loop = false;
-						    	}					    	
+						    		customer = aCustomer;
+								}
 						    }
 						    
 						    if(found == false)
 						    {
 						    	int reply  = JOptionPane.showConfirmDialog(null, null, "User not found. Try again?", JOptionPane.YES_NO_OPTION);
 						    	if (reply == JOptionPane.YES_OPTION) {
-						    		loop = true;
-						    	}
+								}
 						    	else if(reply == JOptionPane.NO_OPTION)
 						    	{
 						    		f.dispose();
-						    		loop = false;
-						    	
-						    		admin();
+
+									admin();
 						    	}
 						    }  
 						    else
@@ -1266,7 +1258,6 @@ public class Menu extends JFrame{
 	public void customer(Customer e1)
 	{	
 		f = new JFrame("models.Customer Menu");
-		e1 = e;
 		f.setSize(400, 300);
 		f.setLocation(200, 200);
 		f.addWindowListener(new WindowAdapter() {
