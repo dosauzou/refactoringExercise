@@ -854,7 +854,7 @@ public class Menu extends JFrame {
                             int randomPIN = (int) (Math.random() * 9000) + 1000;
                             String pin = String.valueOf(randomPIN);
 
-                            ATMCard atm = new ATMCard(randomPIN, valid);
+                            ATMCard atm = new ATMCard(randomPIN);
 
                             CustomerCurrentAccount current = new CustomerCurrentAccount(atm, number, balance, transactionList);
 

@@ -13,7 +13,7 @@ public class Customer {
 	String customerID = "";
 	String password = "";
 	
-	ArrayList<CustomerAccount> accounts = new ArrayList<CustomerAccount> ();
+	ArrayList<CustomerAccount> accounts;
 
 	//Blank constructor
 	public Customer()

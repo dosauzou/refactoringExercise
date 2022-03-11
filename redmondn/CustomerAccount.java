@@ -6,7 +6,7 @@ public class CustomerAccount  {
    
 	String number;
 	double balance;
-	ArrayList<AccountTransaction> transactionList = new ArrayList<AccountTransaction>();
+	ArrayList<AccountTransaction> transactionList;
 
 	//Blank Constructor
 	public CustomerAccount()
