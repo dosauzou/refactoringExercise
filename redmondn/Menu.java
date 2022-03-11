@@ -171,28 +171,29 @@ public class Menu extends JFrame {
 
             //if user select ADMIN----------------------------------------------------------------------------------------------
             if (user.equals("Administrator")) {
-                boolean loop = true, loop2 = true;
+              //  rename loop to 
+                boolean b = true, b1 = true;
                 boolean cont = false;
-                while (loop) {
+                while (b) {
                     Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
 
                     if (!adminUsername.equals("admin"))//search admin list for admin with matching admin username
                     {
                         int reply = JOptionPane.showConfirmDialog(null, null, "Incorrect Username. Try again?", JOptionPane.YES_NO_OPTION);
                         if (reply == JOptionPane.YES_OPTION) {
-                            loop = true;
+                            b = true;
                         } else if (reply == JOptionPane.NO_OPTION) {
                             f1.dispose();
-                            loop = false;
-                            loop2 = false;
+                            b = false;
+                            b1 = false;
                             menuStart();
                         }
                     } else {
-                        loop = false;
+                        b = false;
                     }
                 }
 
-                while (loop2) {
+                while (b1) {
                     Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
 
                     if (!adminPassword.equals("admin11"))//search admin list for admin with matching admin password
@@ -202,11 +203,11 @@ public class Menu extends JFrame {
 
                         } else if (reply == JOptionPane.NO_OPTION) {
                             f1.dispose();
-                            loop2 = false;
+                            b1 = false;
                             menuStart();
                         }
                     } else {
-                        loop2 = false;
+                        b1 = false;
                         cont = true;
                     }
                 }
@@ -359,7 +360,7 @@ public class Menu extends JFrame {
 
         bankChargesButton.addActionListener(ae -> {
 
-            boolean loop = true;
+            boolean b = true;
 
             boolean found = false;
 
@@ -369,7 +370,7 @@ public class Menu extends JFrame {
                 admin();
 
             } else {
-                while (loop) {
+                while (b) {
                     Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer You Wish to Apply Charges to:");
 
                     for (Customer aCustomer : customerList) {
@@ -377,12 +378,12 @@ public class Menu extends JFrame {
                         if (aCustomer.getCustomerID().equals(customerID)) {
                             found = true;
                             customer = aCustomer;
-                            loop = false;
+                            b = false;
                         }
                     }
 
                     if (found == false) {
-                        loop = isLoop(loop);
+                        b = status(b);
                     } else {
                         //
                         configWindow();
@@ -459,7 +460,7 @@ public class Menu extends JFrame {
 
         interestButton.addActionListener(ae -> {
 
-            boolean loop = true;
+            boolean b = true;
 
             boolean found = false;
 
@@ -469,7 +470,7 @@ public class Menu extends JFrame {
                 admin();
 
             } else {
-                while (loop) {
+                while (b) {
                     Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer You Wish to Apply Interest to:");
 
                     for (Customer aCustomer : customerList) {
@@ -477,12 +478,12 @@ public class Menu extends JFrame {
                         if (aCustomer.getCustomerID().equals(customerID)) {
                             found = true;
                             customer = aCustomer;
-                            loop = false;
+                            b = false;
                         }
                     }
 
                     if (found == false) {
-                        loop = isLoop(loop);
+                        b = status(b);
                     } else {
                         configWindow();
 
@@ -559,7 +560,7 @@ public class Menu extends JFrame {
 
         editCustomerButton.addActionListener(ae -> {
 
-            boolean loop = true;
+            boolean b = true;
 
             boolean found = false;
 
@@ -570,7 +571,7 @@ public class Menu extends JFrame {
 
             } else {
 
-                while (loop) {
+                while (b) {
                     Object customerID = JOptionPane.showInputDialog(f, "Enter models.Customer ID:");
 
                     for (Customer aCustomer : customerList) {
@@ -582,9 +583,9 @@ public class Menu extends JFrame {
                     }
 
                     if (found == false) {
-                        loop = isLoop(loop);
+                        b = status(b);
                     } else {
-                        loop = false;
+                        b = false;
                     }
 
                 }
@@ -820,11 +821,11 @@ public class Menu extends JFrame {
                 f.dispose();
                 admin();
             } else {
-                boolean loop = true;
+                boolean b = true;
 
                 boolean found = false;
 
-                while (loop) {
+                while (b) {
                     Object customerID = JOptionPane.showInputDialog(f, "models.Customer ID of models.Customer You Wish to Add an Account to:");
 
                     for (Customer aCustomer : customerList) {
@@ -836,9 +837,9 @@ public class Menu extends JFrame {
                     }
 
                     if (found == false) {
-                        loop = isLoop(loop);
+                        b = status(b);
                     } else {
-                        loop = false;
+                        b = false;
                         //a combo box in an dialog box that asks the admin what type of account they wish to create (deposit/current)
                         String[] choices = {"Current Account", "Deposit Account"};
                         String account = (String) JOptionPane.showInputDialog(null, "Please choose account type",
@@ -1040,17 +1041,17 @@ public class Menu extends JFrame {
         content.add(buttonPanel);
     }
 
-    private boolean isLoop(boolean loop) {
+    private boolean status(boolean b) {
         int reply = JOptionPane.showConfirmDialog(null, null, "User not found. Try again?", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
-            loop = true;
+            b = true;
         } else if (reply == JOptionPane.NO_OPTION) {
             f.dispose();
-            loop = false;
+            b = false;
 
             admin();
         }
-        return loop;
+        return b;
     }
 
     public void customer() {
@@ -1185,21 +1186,21 @@ public class Menu extends JFrame {
                 });
 
                 lodgementButton.addActionListener(ae13 -> {
-                    boolean loop;
+                    boolean b;
                     boolean on = true;
                     double balance = 0;
 
                     if (customerAccount instanceof CustomerCurrentAccount) {
                         int count = 3;
                         int checkPin = ((CustomerCurrentAccount) customerAccount).getAtm().getPin();
-                        loop = true;
+                        b = true;
 
-                        while (loop) {
+                        while (b) {
                             if (count == 0) {
                                 JOptionPane.showMessageDialog(f, "Pin entered incorrectly 3 times. ATM card locked.", "Pin", JOptionPane.INFORMATION_MESSAGE);
                                 ((CustomerCurrentAccount) customerAccount).getAtm().setValid(false);
                                 customer();
-                                loop = false;
+                                b = false;
                                 on = false;
                             }
 
@@ -1208,7 +1209,7 @@ public class Menu extends JFrame {
 
                             if (on) {
                                 if (checkPin == i) {
-                                    loop = false;
+                                    b = false;
                                     JOptionPane.showMessageDialog(f, "Pin entry successful", "Pin", JOptionPane.INFORMATION_MESSAGE);
 
                                 } else {
@@ -1252,21 +1253,21 @@ public class Menu extends JFrame {
                 });
 
                 withdrawButton.addActionListener(ae14 -> {
-                    boolean loop;
+                    boolean b;
                     boolean on = true;
                     double withdraw = 0;
 
                     if (customerAccount instanceof CustomerCurrentAccount) {
                         int count = 3;
                         int checkPin = ((CustomerCurrentAccount) customerAccount).getAtm().getPin();
-                        loop = true;
+                        b = true;
 
-                        while (loop) {
+                        while (b) {
                             if (count == 0) {
                                 JOptionPane.showMessageDialog(f, "Pin entered incorrectly 3 times. ATM card locked.", "Pin", JOptionPane.INFORMATION_MESSAGE);
                                 ((CustomerCurrentAccount) customerAccount).getAtm().setValid(false);
                                 customer();
-                                loop = false;
+                                b = false;
                                 on = false;
                             }
 
@@ -1275,7 +1276,7 @@ public class Menu extends JFrame {
 
                             if (on) {
                                 if (checkPin == i) {
-                                    loop = false;
+                                    b = false;
                                     JOptionPane.showMessageDialog(f, "Pin entry successful", "Pin", JOptionPane.INFORMATION_MESSAGE);
 
                                 } else {
