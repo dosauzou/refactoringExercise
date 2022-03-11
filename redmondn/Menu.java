@@ -18,7 +18,7 @@ public class Menu extends JFrame {
     JLabel customerIDLabel, passwordLabel;
     JTextField customerIDTextField, passwordTextField;
     Container content;
-    Customer e;
+    Customer customer1;
     JPanel panel2;
     JButton addButton;
     String PPS, firstName, surname, DOB, CustomerID;
@@ -1055,7 +1055,7 @@ public class Menu extends JFrame {
 
     public void customer() {
         windowSettings();
-        if (e.getAccounts().size() == 0) {
+        if (customer1.getAccounts().size() == 0) {
             JOptionPane.showMessageDialog(f, "This customer does not have any accounts yet. \n An admin must create an account for this customer \n for them to be able to use customer functionality. ", "Oops!", JOptionPane.INFORMATION_MESSAGE);
             f.dispose();
             menuStart();
@@ -1073,14 +1073,14 @@ public class Menu extends JFrame {
             buttonPanel.add(continueButton);
 
             JComboBox<String> box = new JComboBox<String>();
-            for (int i = 0; i < e.getAccounts().size(); i++) {
-                box.addItem(e.getAccounts().get(i).getNumber());
+            for (int i = 0; i < customer1.getAccounts().size(); i++) {
+                box.addItem(customer1.getAccounts().get(i).getNumber());
             }
 
 
-            for (int i = 0; i < e.getAccounts().size(); i++) {
-                if (e.getAccounts().get(i).getNumber() == box.getSelectedItem()) {
-                    customerAccount = e.getAccounts().get(i);
+            for (int i = 0; i < customer1.getAccounts().size(); i++) {
+                if (customer1.getAccounts().get(i).getNumber() == box.getSelectedItem()) {
+                    customerAccount = customer1.getAccounts().get(i);
                 }
             }
 
